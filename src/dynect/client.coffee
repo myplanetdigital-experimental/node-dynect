@@ -6,7 +6,7 @@ class Client
 
   constructor: (@token)
 
-  a_record: ->
+  a_record: (zone, fqdn) ->
     new ARecord zone, fqdn, @
 
   query: (path = '/') ->
@@ -54,3 +54,6 @@ class Client
     , (err, res, body) =>
       return callback(err) if err
       @errorHandle res, body, callback
+
+module.exports = (token, credentials...) ->
+  new Client(token, credentials...)
