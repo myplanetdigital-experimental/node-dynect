@@ -16,8 +16,10 @@ class Client
     switch typeof @token
       when "object" # new session
         if @token.customer and @token.username and @token.password
+          foo = bar
           # Add querystring to uri
       when "string" # existing session
+        foo = bar
         # Use token in header?
 
   errorHandle: (res, body, callback) ->
